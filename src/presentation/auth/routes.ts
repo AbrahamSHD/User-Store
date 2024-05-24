@@ -5,7 +5,6 @@ import { envs } from '../../config';
 
 export class AuthRoutes {
 
-
   static get routes(): Router {
 
     const router = Router();

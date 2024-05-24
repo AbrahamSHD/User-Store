@@ -8,7 +8,6 @@ export class AuthService {
 
     // DI
     constructor(
-      // DI - Email Service
       private readonly emailService: EmailService,
     ) {}
   
@@ -63,7 +62,6 @@ export class AuthService {
   
     }
   
-  
     private sendEmailValidationLink = async( email: string ) => {
   
       const token = await JwtAdapter.generateToken({ email });
@@ -84,7 +82,7 @@ export class AuthService {
   
       const isSent = await this.emailService.sendEmail(options);
       if ( !isSent ) throw CustomError.internalServer('Error sending email');
-  
+
       return true;
     }
 
