@@ -5,10 +5,10 @@ export interface SendMailOptions {
   to: string | string[];
   subject: string;
   htmlBody: string;
-  attachements?: Attachement[];
+  attachments?: Attachment[];
 }
 
-export interface Attachement {
+export interface Attachment {
   filename: string;
   path: string;
 }
@@ -17,7 +17,6 @@ export interface Attachement {
 export class EmailService {
 
   private transporter: Transporter;
-
 
   constructor(
     mailerService: string,
@@ -42,7 +41,7 @@ export class EmailService {
 
   async sendEmail( options: SendMailOptions ): Promise<boolean> {
 
-    const { to, subject, htmlBody, attachements = [] } = options;
+    const { to, subject, htmlBody, attachments = [] } = options;
 
 
     try {
@@ -53,7 +52,7 @@ export class EmailService {
         to: to,
         subject: subject,
         html: htmlBody,
-        attachments: attachements,
+        attachments: attachments,
       });
 
       // console.log( sentInformation );
